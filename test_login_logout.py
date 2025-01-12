@@ -9,15 +9,12 @@ import unittest
 
 class LoginAndLogoutFunctionalityTests(unittest.TestCase):
     def setUp(self):
-        """Setup the Chrome WebDriver and load user data."""
         self.driver = webdriver.Chrome()
 
-        # Load user data from JSON file
         with open("UserData.json", "r") as file:
             self.user_data = json.load(file)
 
     def test_login_and_logout_using_css_selector(self):
-        """Test login and logout functionality using CSS Selector."""
         driver = self.driver
         # Arrange
         driver.get("https://saucedemo.com")
@@ -52,7 +49,6 @@ class LoginAndLogoutFunctionalityTests(unittest.TestCase):
         self.assertIsNotNone(login_button_after_logout)
 
     def test_login_and_logout_using_xpath(self):
-        """Test login and logout functionality using XPath."""
         driver = self.driver
         # Arrange
         driver.get("https://saucedemo.com")
@@ -87,7 +83,6 @@ class LoginAndLogoutFunctionalityTests(unittest.TestCase):
         self.assertIsNotNone(login_button_after_logout)
 
     def tearDown(self):
-        """Clean up the WebDriver."""
         self.driver.quit()
 
 

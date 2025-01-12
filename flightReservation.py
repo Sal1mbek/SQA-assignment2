@@ -9,11 +9,9 @@ import time
 
 class FlightReservationTests(unittest.TestCase):
     def setUp(self):
-        """Setup the Chrome WebDriver."""
         self.driver = webdriver.Chrome()
 
     def test_make_flight_reservation_using_css_selectors(self):
-        """Test flight booking functionality using CSS Selectors."""
         driver = self.driver
         # Arrange
         driver.get("https://aviata.kz")
@@ -31,7 +29,7 @@ class FlightReservationTests(unittest.TestCase):
         suggestion1.click()
 
         where_to.click()
-        where_to.send_keys("Алматы")
+        where_to.send_keys("Петропавловск")
         time.sleep(3)
         suggestion2 = driver.find_element(By.CSS_SELECTOR, ".border-b")
         suggestion2.click()
@@ -41,10 +39,9 @@ class FlightReservationTests(unittest.TestCase):
 
         # Assert title contains expected location
         self.assertIn("Астана", driver.title)
-        self.assertIn("Алматы", driver.title)
+        self.assertIn("Петропавловск", driver.title)
 
     def test_make_flight_reservation_using_xpath(self):
-        """Test flight booking functionality using XPath."""
         driver = self.driver
         # Arrange
         driver.get("https://aviata.kz")
@@ -62,7 +59,7 @@ class FlightReservationTests(unittest.TestCase):
         suggestion1.click()
 
         where_to.click()
-        where_to.send_keys("Алматы")
+        where_to.send_keys("Петропавловск")
         time.sleep(2)
         suggestion2 = driver.find_element(By.XPATH, "//div[contains(@class, 'border-b')]")
         suggestion2.click()
@@ -72,10 +69,9 @@ class FlightReservationTests(unittest.TestCase):
 
         # Assert title contains expected location
         self.assertIn("Астана", driver.title)
-        self.assertIn("Алматы", driver.title)
+        self.assertIn("Петропавловск", driver.title)
 
     def tearDown(self):
-        """Clean up the WebDriver."""
         self.driver.quit()
 
 
